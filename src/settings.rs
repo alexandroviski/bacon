@@ -1,11 +1,14 @@
+use std::ffi::OsString;
+
 use crate::*;
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Default, Clone)]
 pub struct Settings {
     pub summary: bool,
     pub wrap: bool,
     pub reverse: bool,
     pub vim_keys: bool,
+    pub cargo_args: Vec<OsString>,
 }
 
 impl Settings {
@@ -41,17 +44,6 @@ impl Settings {
         }
         if args.reverse {
             self.reverse = true;
-        }
-    }
-}
-
-impl Default for Settings {
-    fn default() -> Self {
-        Self {
-            summary: false,
-            wrap: false,
-            reverse: false,
-            vim_keys: false,
         }
     }
 }

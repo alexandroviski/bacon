@@ -155,6 +155,9 @@ impl Mission {
         for arg in tokens {
             command.arg(arg);
         }
+        for arg in &self.settings.cargo_args {
+            command.arg(arg);
+        }
         command.current_dir(&self.cargo_execution_directory);
         command
     }
